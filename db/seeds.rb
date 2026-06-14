@@ -9,3 +9,55 @@
 #   end
 
 
+User.destroy_all
+Editor.destroy_all
+Post.destroy_all
+
+user1 = User.create!(
+  name: "Ahmed",
+  email: "ahmed@test.com"
+)
+
+user2 = User.create!(
+  name: "Ali",
+  email: "ali@test.com"
+)
+
+editor1 = Editor.create!(
+  name: "Editor One",
+  email: "editor1@test.com"
+)
+
+editor2 = Editor.create!(
+  name: "Editor Two",
+  email: "editor2@test.com"
+)
+
+post1 = Post.create!(
+  title: "First Post",
+  body: "Hello Rails",
+  user: user1,
+  creator: user1
+)
+
+post2 = Post.create!(
+  title: "Second Post",
+  body: "Learning MVC",
+  user: user2,
+  creator: user2
+)
+
+PostEditor.create!(
+  post: post1,
+  editor: editor1
+)
+
+PostEditor.create!(
+  post: post1,
+  editor: editor2
+)
+
+PostEditor.create!(
+  post: post2,
+  editor: editor1
+)
